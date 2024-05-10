@@ -1,33 +1,24 @@
-import React, { useState } from 'react';
-import './LoginRegister.css';
+import React from 'react';
 import { FaUser, FaLock, FaEnvelope} from "react-icons/fa6";
-import Register from './Register';
 
-
-const LoginRegister=() =>{
-
-    const [action, setAction]= useState ('');
-
-    const registerLink = ()=>{
-        setAction('active');
-    };
-
-   const loginLink = ()=>{
-        setAction('');
-    };
-
-
+function Register({registerLink}) {
   return (
-    <div className={`wrapper${action}`}>
-        <Register registerLink={registerLink}/>
-      <div className="form-box login">
+    <div> 
+        <div className="form-box register">
             <form action="">
-                <h1>Login</h1>
+                <h1>Registration</h1>
                 <div className="input-box">
                     <input type="text"
                     placeholder='Username'required/>
                     <FaUser className="icon" />
                 </div>
+
+                <div className="input-box">
+                    <input type="email"
+                    placeholder='Email'required/>
+                    < FaEnvelope className="icon" />
+                </div>
+
                 <div className="input-box">
                     <input type="password" 
                     placeholder="password" required/>
@@ -38,18 +29,19 @@ const LoginRegister=() =>{
                     Remember me </label>
                     <a href="#">Forgot password?</a> 
                 </div>
-                <button type='submit'>Login</button>
+                <button type='submit'>Register</button>
                 <div className="register-link">
                     <p>Don't have an account? <a href="#"
-                    onClick={loginLink}>Register</a>
+                   onClick={registerLink} >Login</a>
                     </p>
                 </div>
           
             </form>
       </div> 
 
+
     </div>
   )
 }
 
-export default LoginRegister
+export default Register
